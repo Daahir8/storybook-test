@@ -35,40 +35,61 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+ 
+  parameters: {
+    backgrounds: {
+      default: 'light', 
+    },
+  },
   args: {
     primary: true,
     label: 'Contact Us',
+    
   },
 };
+
 export const Large: Story = {
   
+  parameters: {
+    backgrounds: {
+      default: 'light', 
+    },
+  },
   args: {
     primary: false,
     size: 'large',
     label: 'Contact Us',
-    backgroundColor: 'white',
+    
   },
 };
 
 export const Small: Story = {
-  
-  
+
+  parameters: {
+    backgrounds: {
+      default: 'dark', 
+    },
+  },
   args: {
-    
     primary: true,
     size: 'small',
     label: 'Contact Us',
-    backgroundColor: 'black',
     
   },
 };
 
 
-export const Warning: Story = {
+export const Default: Story = {
+  parameters: {
+    backgrounds: {
+      default: 'light', 
+    },
+  },
   args: {
     primary: true,
-    label: 'Delete now',
-    backgroundColor: 'white',
+    label: 'Contact Us',
+    backgroundColor: 'black',
+    
   },
 };
 
