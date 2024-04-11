@@ -1,67 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './button.css';
 
 interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
   primary?: boolean;
-  /**
-   * What background color to use
-   */
   backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
+  size?: 'small' | 'large';
   label: string;
-  /**
-   * Optional click handler
-   */
   onClick?: () => void;
-  /**
-   * Button variant
-   */
   variant?: 'label' | 'ellipsis' | 'link' | 'loading';
-  spinnerColor?: string;
 }
 
-/**
- * Primary UI component for user interaction
- */
 export const Button = ({
   primary = false,
-  size = 'medium',
+  size = 'large',
   backgroundColor,
   label,
   variant,
   ...props
 }: ButtonProps) => {
+  // State to track hover state
+  const [isHovered, setIsHovered] = useState(false);
+  // State to track click state
+  const [isClicked, setIsClicked] = useState(false);
+
+  // Function to handle hover event
+  const handleHover = () => {
+    setIsHovered(true);
+  };
+
+  // Function to handle hover leave event
+  const handleHoverLeave = () => {
+    setIsHovered(false);
+  };
+
+  // Function to handle click event
+  const handleClick = () => {
+    // Toggle click state
+    setIsClicked(!isClicked);
+  };
+
+  // Determine button mode based on primary prop
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  const variantClass = variant === 'ellipsis' ? 'storybook-button--ellipsis' :
-                      variant === 'link' ? 'storybook-button--link' :
-                      variant === 'loading' ? 'storybook-button--loading' : '';
+  // Determine button variant class
+  const variantClass =
+    variant === 'ellipsis'
+      ? 'storybook-button--ellipsis'
+      : variant === 'link'
+      ? 'storybook-button--link'
+      : variant === 'loading'
+      ? 'storybook-button--loading'
+      : '';
+
+  // Define button style based on click and hover states
+  const buttonStyle = {
+    backgroundColor: isClicked ? 'red' : isHovered ? 'lightcoral' : 'blue',
+  };
+
   return (
     <button
       type={variant === 'link' ? 'button' : 'submit'}
       className={['storybook-button', `storybook-button--${size}`, mode, variantClass].join(' ')}
-      style={{ backgroundColor }}
+      style={{ ...buttonStyle, backgroundColor }} // Apply button style
+      onMouseEnter={handleHover} // Handle mouse enter event
+      onMouseLeave={handleHoverLeave} // Handle mouse leave event
+      onClick={handleClick} // Handle click event
       {...props}
     >
       {variant === 'loading' ? (
-        <>
         <div className="loading-content">
           <div className="spinner"></div>
           <span>Loading</span>
         </div>
-        </>
       ) : (
-        label
+        label // Display button label
       )}
     </button>
   );
 };
-

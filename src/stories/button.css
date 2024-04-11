@@ -9,7 +9,7 @@
 }
 .storybook-button--primary {
   color: white;
-  background-color: #1ea7fd;
+  background-color: red;
 }
 .storybook-button--secondary {
   color: #333;
@@ -50,3 +50,10 @@
   }
 }
 
+.storybook-button--primary:hover {
+  background-color: lightcoral;
+}
+
+.storybook-button--primary:active {
+  background-color: blue;
+}

@@ -77,6 +77,6 @@ export const LoadingButton: Story = {
     label: 'Loading...',
     variant: 'loading',
     disabled: true,
-    spinnerColor: '',
+    spinnerColor: 'red',
   },
 };
