@@ -8,6 +8,19 @@ const meta: Meta = {
   component: Button,
   parameters: {
     layout: 'centered',
+    backgrounds: {
+      default: 'light',
+      values: [
+        {
+          name: 'light',
+          value: '#ffffff',
+        },
+        {
+          name: 'dark',
+          value: '#333333',
+        },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -16,6 +29,7 @@ const meta: Meta = {
   args: { onClick: fn() },
 };
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
@@ -23,60 +37,38 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     primary: true,
-    label: 'Button',
+    label: 'Contact Us',
   },
 };
-
 export const Large: Story = {
+  
   args: {
+    primary: false,
     size: 'large',
-    label: 'Button',
+    label: 'Contact Us',
+    backgroundColor: 'white',
   },
 };
 
 export const Small: Story = {
+  
+  
   args: {
+    
+    primary: true,
     size: 'small',
-    label: 'Button',
+    label: 'Contact Us',
+    backgroundColor: 'black',
+    
   },
 };
+
 
 export const Warning: Story = {
   args: {
     primary: true,
     label: 'Delete now',
-    backgroundColor: 'red',
+    backgroundColor: 'white',
   },
 };
 
-export const LabelButton: Story = {
-  args: {
-    label: 'Label Button',
-    variant: 'label',
-  },
-};
-
-export const EllipsisButton: Story = {
-  args: {
-    label: '...',
-    variant: 'ellipsis',
-  },
-};
-
-// Export LinkButton and LoadingButton stories at the end
-export const LinkButton: Story = {
-  args: {
-    label: 'Go to Google',
-    variant: 'link',
-    onClick: () => window.open('https://www.google.com', '_blank'),
-  },
-};
-
-export const LoadingButton: Story = {
-  args: {
-    label: 'Loading...',
-    variant: 'loading',
-    disabled: true,
-    spinnerColor: 'red',
-  },
-};
