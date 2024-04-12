@@ -47,7 +47,7 @@ export const Button = ({
 
   return (
     <button
-      type="submit" // Default type is submit
+      type="submit" 
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       style={{ ...buttonStyle, backgroundColor }} // Apply button style
       onMouseEnter={handleHover} // Handle mouse enter event

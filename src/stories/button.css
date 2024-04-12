@@ -6,17 +6,21 @@
   cursor: pointer;
   display: inline-block;
   line-height: 1;
-  
 }
+
 .storybook-button--primary {
   color: white;
   background-color: red;
 }
+
+
+
 .storybook-button--secondary {
   color: #333;
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
+
 .storybook-button--small {
   font-size: 12px;
   padding: 10px 16px;
@@ -30,28 +34,8 @@
   padding: 12px 24px;
 }
 
-.loading-content {
-  display: flex;
-  align-items: center;
-}
 
-.spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: green;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.primarystorybook-button--:hover {
+.storybook-button--primary:hover {
   background-color: lightcoral;
 }
 

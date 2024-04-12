@@ -56,9 +56,9 @@ export const Large: Story = {
     },
   },
   args: {
-    primary: false,
-    size: 'large',
+    primary: true,
     label: 'Contact Us',
+    backgroundColor: 'blue',
     
   },
 };
@@ -86,10 +86,8 @@ export const Default: Story = {
     },
   },
   args: {
-    primary: true,
+    primary: false,
+    size: 'large',
     label: 'Contact Us',
-    backgroundColor: 'black',
-    
   },
 };
-
