@@ -3,6 +3,7 @@ import { fn } from '@storybook/test';
 import React from 'react';
 import { Button } from './Button';
 
+// This meta object contains metadata for the Storybook story. It defines the title, component, parameters including layout and backgrounds, tags, argument types, and default arguments. (Need update code)
 const meta: Meta = {
   title: 'Example/Button',
   component: Button,
@@ -32,7 +33,12 @@ const meta: Meta = {
 
 export default meta;
 
+// This line defines the type of a Story object based on the meta object.
+
+
 type Story = StoryObj<typeof meta>;
+
+// Story Definitions: Each story represents a different variation of the Button component. 
 
 export const Primary: Story = {
  

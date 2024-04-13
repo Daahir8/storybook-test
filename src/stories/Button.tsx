@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import './button.css';
 
+// This interface defines the props that the Button component accepts.
 interface ButtonProps {
   primary?: boolean;
+  large?: boolean;
+  small?: boolean;
   backgroundColor?: string;
   size?: 'small' | 'large';
   label: string;
   onClick?: () => void;
 }
-
+// This is a functional component Button that accepts props specified by the ButtonProps interface.
 export const Button = ({
   primary = false,
+  large= false,
+  small = false,
   size = 'large',
   backgroundColor,
   label,
@@ -40,15 +45,19 @@ export const Button = ({
   // Determine button mode based on primary prop
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
 
+  const modeLarge = large ? 'storybook-button--primary' : 'storybook-button--secondary';
+
+  const modeSmall = small ? 'storybook-button--primary' : 'storybook-button--secondary';
+
   // Define button style based on click and hover states
   const buttonStyle = {
-    backgroundColor: isClicked ? 'red' : isHovered ? 'lightcoral' : 'blue',
+    backgroundColor: isClicked ? 'green' : isHovered ? 'lightcoral' : 'blue',
   };
 
   return (
     <button
       type="submit" 
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={['storybook-button', `storybook-button--${size}`, mode ].join(' ')}
       style={{ ...buttonStyle, backgroundColor }} // Apply button style
       onMouseEnter={handleHover} // Handle mouse enter event
       onMouseLeave={handleHoverLeave} // Handle mouse leave event
